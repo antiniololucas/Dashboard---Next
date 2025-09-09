@@ -1,29 +1,20 @@
-'use client'
-
+import { CartCounter } from "@/app/shopping-cart";
 import { Metadata } from "next";
-import { useState } from "react";
 
-export const metadata :Metadata = {
+export const metadata : Metadata = {
   title : "Counter Page",
   description : "Un simple contador"
 }
+//Lo importante es que aqui, del lado del server solo se reenderiza una vez, la primera vez.
+//Mucho mejor que tener un useEffect dependiente de NADA en el front.
+//De esta manera podes tener un fetch o algo con conexion a DB, y utilizar esos valores para pasarlos al cliente.
+
 
 export default function CounterPage() {
-
-  const [valor , setValor] = useState(0);
-
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <span>Productos en el carrito</span>
-      <span className="text-9xl">{valor}</span>
-      <div className="flex">
-        <button onClick={() => setValor(valor + 1)} className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2">
-          +1
-        </button>
-        <button onClick={() => setValor(valor - 1)} className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2">
-          -1
-        </button>
-      </div>
+      <CartCounter value = {100}/>
     </div>
   );
 }
