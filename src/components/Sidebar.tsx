@@ -1,7 +1,7 @@
 import React from "react";
 import Image from 'next/image'
 import { IoBrowsersOutline, IoCalculator, IoFootball, IoLogoReact } from "react-icons/io5";
-import { SidebarMenuItem } from "../components";
+import { SidebarMenuItem } from ".";
 import { title } from "process";
 import { subtle } from "crypto";
 
@@ -31,7 +31,7 @@ export const Sidebar = () => {
     <div
       id="menu"
       style={{ width: "400px" }}
-      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0 overflow-y-scroll"
+      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0"
     >
       <div id="logo" className="my-4 px-6">
         <h1 className=" flex items-center text-lg md:text-2xl font-bold text-white">
